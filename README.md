@@ -1,0 +1,1 @@
+# AllInOneSensorDemo.UWP
