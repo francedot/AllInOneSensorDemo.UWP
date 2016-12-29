@@ -1,0 +1,45 @@
+﻿<Page x:Class="AllInOneSensorDemo.UWP.Views.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:AllInOneSensorDemo.UWP.Views"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      DataContext="{Binding Source={StaticResource ViewModelLocator},
+                            Path=SettingsPageViewModel}"
+      mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="12,16">
+        <ScrollViewer HorizontalContentAlignment="Left" VerticalScrollBarVisibility="Auto">
+            <RelativePanel HorizontalAlignment="Left">
+
+                <ToggleSwitch x:Name="UseLightThemeToggleSwitch"
+                              Header="Use Light Theme"
+                              IsOn="{Binding UseLightThemeButton,
+                                             Mode=TwoWay}"
+                              OffContent="Dark theme"
+                              OnContent="Light theme"
+                              RelativePanel.AlignLeftWithPanel="True"
+                              RelativePanel.AlignTopWithPanel="True" />
+
+                <TextBlock x:Name="WarningAsterisk"
+                           Margin="0,0,4,0"
+                           FontSize="18"
+                           RelativePanel.AlignLeftWithPanel="True"
+                           VerticalAlignment="Bottom"
+                           RelativePanel.Below="UseLightThemeToggleSwitch"
+                           TextWrapping="Wrap">
+                    <Run>*</Run>
+                </TextBlock>
+                <TextBlock Margin="0,0,0,0"
+                           RelativePanel.AlignLeftWithPanel="False"
+                           RelativePanel.AlignTopWith="WarningAsterisk"
+                           RelativePanel.RightOf="WarningAsterisk"
+                           TextWrapping="Wrap">
+                    <Run FlowDirection="RightToLeft">Requires app restart for the changes to take effect</Run>
+                </TextBlock>
+
+            </RelativePanel>
+
+        </ScrollViewer>
+    </Grid>
+</Page>
